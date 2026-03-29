@@ -1,6 +1,6 @@
 ---
 name: academic-plotting
-description: Create or restyle figures for academic paper drafts and presentation slides, and patch plotting code so future runs inherit the same visual contract. Use when a user wants cleaner publication-ready plots, consistent palettes and typography, legend or annotation cleanup, thicker lines or larger fonts for slides, or fast aesthetics-only iteration without rerunning expensive estimation, optimization, or data generation.
+description: Create or restyle figures for academic paper drafts and presentation slides, and patch plotting code so future runs inherit the same visual contract. Use when a user wants cleaner publication-ready plots, consistent palettes and typography, legend or annotation cleanup, thicker lines or larger fonts for slides, print-safe paper figures that remain legible in black-and-white, or fast aesthetics-only iteration without rerunning expensive estimation, optimization, or data generation.
 ---
 # Academic Plotting
 
@@ -18,6 +18,7 @@ Use this skill when the task is about figure presentation rather than model esti
 3. Keep one visual contract across paper and slide variants.
    - Use the same palette, type family, and line semantics.
    - Change only size, font scale, line weight, and spacing between variants.
+   - Require paper-mode choices to remain interpretable in grayscale or black-and-white printing.
 4. Refresh only the smallest useful figure set.
    - For iterative aesthetics work, refresh one representative figure family only.
    - Do not regenerate unrelated output trees.

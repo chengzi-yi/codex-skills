@@ -6,6 +6,8 @@
 - Keep a white background, boxed frame, black axes and text, and a light gray grid.
 - Use a serif math-friendly type family when available; `Computer Modern` is the default in the current Julia workflow.
 - Remove decorative titles unless the user specifically wants them.
+- For paper figures, assume black-and-white printing is a real use case.
+- Do not rely on color alone to distinguish important series, benchmarks, or selected points in paper mode.
 
 ## Paper vs slides
 
@@ -15,6 +17,7 @@ Keep the same palette and semantics across both variants.
   - prioritize dense but readable layout
   - moderate line weights
   - larger-than-default labels suitable for manuscript screenshots or draft insertion
+  - choose colors with distinct grayscale contrast, and add line-style or marker differences when multiple series must remain distinguishable after printing
 - Slides mode:
   - increase guide, tick, and legend fonts
   - increase line widths
@@ -55,6 +58,12 @@ Use colors by role, not by variable name.
 - highlighted benchmark or selected point: `#B2182B`
 - grid: `#D0D0D0`
 
+For paper mode:
+
+- prefer darker, higher-contrast colors over light hues such as yellow or pale cyan
+- verify that adjacent series differ in luminance as well as hue
+- when the palette alone is not safely distinguishable in grayscale, add dashes, dots, marker shapes, or direct labels
+
 ### Paper baseline
 
 - size: about `1400x900`
@@ -66,6 +75,7 @@ Use colors by role, not by variable name.
 - tick font size: about `19`
 - legend font size: match the guide font size
 - margins: allow extra bottom margin only when x-axis annotations or dense tick labels require it
+- print-safety rule: the figure should remain readable if converted to grayscale or printed on a black-and-white printer
 
 ### Slides baseline
 
@@ -78,3 +88,17 @@ Use colors by role, not by variable name.
 - tick font size: about `22`
 - legend font size: match the guide font size
 - margins: increase whitespace more aggressively than in paper mode
+
+### Figure-family defaults
+
+- profile or objective plots:
+  - suppress the main-series legend when the line identity is obvious
+  - keep a legend entry only for a benchmark, selected optimum, or highlighted reference if that is the only meaningful guide
+- parameter-path plots:
+  - suppress legends by default when one curve is shown per panel
+  - remove titles unless they add information not already carried by filenames, captions, or surrounding text
+- uncertainty bands:
+  - widen the y-range if the interval looks visually clipped or implausibly thin
+  - do not manipulate the interval itself to solve a readability problem
+- print-safe distinction:
+  - if a paper figure has multiple visually important series, ensure they remain distinguishable without color by combining color with line pattern or marker differences

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Plotting"
+  short_description: "Paper and slide plotting workflow"
+  default_prompt: "Use $academic-plotting to restyle figures for papers or slides while minimizing reruns."

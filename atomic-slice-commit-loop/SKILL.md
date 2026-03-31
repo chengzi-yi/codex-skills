@@ -45,6 +45,12 @@ A sequence of small, independently understandable implementation commits, each w
    - Record outcome, risks, and the next smallest slice.
    - Repeat loop.
 
+## Preferred Commit Style
+
+- Use Conventional Commits (`refactor:`, `feat:`, `fix:`, `docs:`, `chore:`) with clear scope when applicable.
+- Keep messages concise and intent-first.
+- Keep each commit independently understandable and reversible.
+
 ## Decision Branches
 
 - If repo guidance points this work to an experiment or validation workflow, switch before widening the slice.

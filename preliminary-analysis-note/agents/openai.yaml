@@ -1,0 +1,4 @@
+interface:
+  display_name: "Preliminary Analysis"
+  short_description: "Draft concise analysis notes"
+  default_prompt: "Use $preliminary-analysis-note to create or tighten a concise Obsidian-style preliminary analysis note from the current outputs."

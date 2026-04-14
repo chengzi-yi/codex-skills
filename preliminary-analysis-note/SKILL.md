@@ -1,8 +1,6 @@
 ---
 name: preliminary-analysis-note
 description: 'Create or update concise Obsidian-style preliminary analysis notes. Load repo note guidance for local destinations, metrics, and examples when available.'
-argument-hint: 'Provide the run scope, key outputs, headline findings, and target folder if it differs from the default.'
-user-invocable: true
 ---
 
 # Preliminary Analysis Note
@@ -24,6 +22,7 @@ Write a short analysis note that is easy to scan in Obsidian.
    - use a table in `Results` when it improves readability
    - optional case-specific sections only when they add signal
    - one short `Interpretation` section in bullets
+   - if `Results` introduces metrics, variables, or run-specific flags, define them in `Interpretation`
 4. Prefer direct statements over narrative.
 5. State caveats plainly.
 
@@ -34,6 +33,8 @@ Write a short analysis note that is easy to scan in Obsidian.
 - Treat section layout as flexible after the core metadata and summary.
 - Use numeric precision only as needed to support comparison.
 - Use a table in `Results` only when it improves readability.
+- When `Results` shows metrics, variables, or abbreviated flags, `Interpretation` must define each one that is needed to understand the note.
+- If `Results` uses a table, follow it with concise interpretation bullets that explain what the reported metrics or variables mean, not just whether they moved up or down.
 - Do not repeat the same finding in multiple sections.
 - Keep source lists short and path-only.
 

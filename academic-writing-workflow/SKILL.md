@@ -15,14 +15,14 @@ Use this skill as a context-aware editor for academic economics papers and slide
 - Do not invent parameter values, sample definitions, citations, results, or mechanisms.
 - Use the smallest useful intervention and avoid unrelated cleanup.
 - Treat `[...]` as user-authored prose to incorporate; treat `[#...]` as instructions to apply and remove.
-- If `.agents/references/academic-writing-workflow/repo-draft-map.md` exists in the current repo, read it when repo-specific draft structure, terminology, or paper context would affect the edit.
+- Read additional repo-local context when present and relevant.
 
 ## Workflow
 
 1. Ground the edit in context.
    - Inspect the selected text and its surrounding paragraph, subsection, section, frame, or neighbouring frames.
    - Identify the local purpose of the text: motivation, fact, model object, mechanism, estimation detail, result, identification, counterfactual, implication, transition, or slide takeaway.
-   - For repo-specific drafts, load the local repo draft map when available and relevant.
+   - For repo-specific drafts or slide decks, load the local repo map when available and relevant.
 
 2. Choose the smallest useful intervention.
    - For proofreading, fix grammar, word order, tense, articles, punctuation, and awkward phrasing.
@@ -49,5 +49,6 @@ Use this skill as a context-aware editor for academic economics papers and slide
 Repo-specific references should stay in the repo rather than in this user-level skill. When present, use:
 
 - `.agents/references/academic-writing-workflow/repo-draft-map.md` for local draft structure, project-specific terminology, English variant preferences, and paper-specific argument chains.
+- `.agents/references/academic-writing-workflow/repo-slide-map.md` for local deck structure, timing, slide-role patterns, presentation rules, and deck-specific terminology.
 
 Treat repo maps as replaceable local context. Do not assume they exist outside the current repo, and do not require them for general academic writing tasks.

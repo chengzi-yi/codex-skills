@@ -16,9 +16,13 @@ Use these rules when writing, editing, restructuring, or reviewing academic econ
 
 - Make each slide carry one idea.
 - Use takeaway titles that state the slide's claim, not labels such as "Results" or "Model".
+- Use short, direct frame titles; prefer noun-phrase or result titles over full-sentence titles.
 - Put only the bare essentials on main slides.
 - Keep bullets short and one-line where possible.
-- Use spoken delivery for examples, interpretation, and discussion that go beyond the slide.
+- Minimize explanatory text around tables and figures; keep only the visual and a precise note when needed.
+- Put oral-delivery guidance in concise LaTeX comments, not visible bullets.
+- Use bold section labels inside slides to organize logic.
+- Use color consistently and semantically, not decoratively.
 - Move rigor-only details, robustness, derivations, long tables, and secondary qualifications to backup slides.
 
 ## Figures, Tables, And Equations

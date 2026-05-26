@@ -11,6 +11,7 @@ Simulate a rigorous peer review of an academic economics manuscript before submi
 **Argument:** `$ARGUMENTS`
 - Must contain a path to a paper file: `.pdf`, `.tex`, `.qmd`, `.md`, or `.docx`
 - May also contain one mode: `full`, `quick`, `methodology`, or `da-only`
+- May also contain one report output target after the manuscript path: an existing folder or an existing `.md` file
 - If no valid file path is provided, stop and ask the user for the manuscript file path.
 
 **Modes** (append to argument):
@@ -22,6 +23,8 @@ Simulate a rigorous peer review of an academic economics manuscript before submi
 Examples:
 - `/academic-review-paper /path/to/paper/main.tex full`
 - `/academic-review-paper /path/to/manuscript.pdf methodology`
+- `/academic-review-paper /path/to/paper.pdf full /path/to/reports/`
+- `/academic-review-paper /path/to/paper/main.tex methodology /path/to/reviews.md`
 
 ---
 
@@ -30,16 +33,23 @@ Examples:
 ### Step 0: Locate, Read, and Classify the Paper
 
 1. Parse `$ARGUMENTS` into a manuscript file path and optional mode. Default to `full`.
-2. Require an explicit file path. Do not infer a project, repository, or folder from a short name.
-3. Verify the file exists and has a supported extension. If not, ask for the paper file path.
-4. For PDFs, read in chunks. For LaTeX, read the main file and any reachable `\input{}` or `\include{}` files. Read the full paper end-to-end before reviewing.
-5. Load `references/real-referee-patterns.md` when calibration would help. It contains referee-report patterns and macro/theory/quantitative-model review cues.
-6. Classify the manuscript before the review:
+2. Treat the first valid supported manuscript file path as the paper, even when that paper is itself `.md`.
+3. Treat the first additional path after the manuscript path as the optional report output target.
+4. Require an explicit manuscript file path. Do not infer a project, repository, or folder from a short name.
+5. Verify the manuscript file exists and has a supported extension. If not, ask for the paper file path.
+6. Validate the optional report output target if supplied:
+   - Existing directory: create the auto-named report file inside it.
+   - Existing `.md` file: append the report to the end of the file under `#review_[sanitized_paper_name]_[YYYY-MM-DD]`.
+   - Missing path, non-directory folder target, or non-`.md` file: stop and ask for a valid existing output folder or existing `.md` report file.
+7. For PDFs, use direct reading when reliable; otherwise run the bundled read-only extractor: `python3 scripts/extract_pdf_text.py "<paper.pdf>"`. If extraction fails or the PDF is image-only, stop and ask for OCR text or extracted text. Do not modify the source PDF.
+8. For LaTeX, read the main file and any reachable `\input{}` or `\include{}` files. Read the full paper end-to-end before reviewing.
+9. Load `references/real-referee-patterns.md` when calibration would help. It contains referee-report patterns and macro/theory/quantitative-model review cues.
+10. Classify the manuscript before the review:
    - **empirical-only**: reduced-form, experimental, quasi-experimental, or descriptive empirical paper with no formal model doing substantive work.
    - **theory-only**: formal model or conceptual theory paper with little or no original empirical analysis.
    - **quantitative-model**: calibrated, estimated, simulated, structural, DSGE, heterogeneous-agent, search/matching, trade, IO, finance, or macro model used for quantitative discipline or counterfactuals.
    - **mixed empirical-model**: empirical facts and a theory/quantitative model both support the contribution.
-7. State the classification in the report. If classification is ambiguous, choose the closest type and explain the uncertainty.
+11. State the classification in the report. If classification is ambiguous, choose the closest type and explain the uncertainty.
 
 ### Step 1: Econ Referee Pass
 
@@ -210,129 +220,23 @@ Organize all findings into:
 
 ### Step 4: Write the Report
 
-Save the full report to the working directory as `review_[sanitized_paper_name]_[YYYY-MM-DD].md`.
+Load `references/review-report-template.md` before writing the final report. Follow its structure while omitting sections that do not apply to the selected mode.
+
+If no report output target was supplied, save the full report to the working directory as `review_[sanitized_paper_name]_[YYYY-MM-DD].md`.
+
+If the report output target is an existing directory, save the full report inside that directory as `review_[sanitized_paper_name]_[YYYY-MM-DD].md`.
+
+If the report output target is an existing `.md` file, append the report to the end of that file under the exact heading `#review_[sanitized_paper_name]_[YYYY-MM-DD]`. Do not replace existing file content.
 
 Tell the user the full path to the output file.
 
 ---
 
-## Output Format
+## Bundled Resources
 
-```markdown
-# Manuscript Review: [Paper Title]
-
-**Date:** [YYYY-MM-DD]
-**Mode:** [full / quick / methodology / da-only]
-**File reviewed:** [path to manuscript]
-**Manuscript type:** [empirical-only / theory-only / quantitative-model / mixed empirical-model]
-**Reviewer:** /academic-review-paper skill v2.0
-
----
-
-## Summary Assessment
-
-**Overall recommendation:** [Strong Accept / Accept with Minor Revision / Revise and Resubmit / Reject]
-
-[2-3 paragraph summary: main contribution, key strengths, and central concerns.]
-
----
-
-## Econ Referee Report
-
-### Dimension Scores
-
-| Dimension | Score (1-5 or N/A) | Key Issue |
-|-----------|:------------------:|-----------|
-| Argument Structure | | |
-| Empirical Identification and Econometrics | | |
-| Theory and Model Logic | | |
-| Quantitative Discipline, Validation, and Counterfactuals | | |
-| Empirics-Model Link | | |
-| Literature Positioning and Framing | | |
-| Writing Quality | | |
-| Presentation and Transparency | | |
-| **Overall** | **[avg over applicable dimensions]** | |
-
-### Strengths
-
-1. [Specific strength with section/table/equation/page reference]
-2. [...]
-3. [...]
-
-### Major Concerns
-
-#### MC1: [Title]
-- **Dimension:** [which applicable dimension]
-- **Issue:** [specific description]
-- **Suggestion:** [how to address it]
-- **Location:** [section/page/equation/table]
-
-### Minor Concerns
-
-#### mc1: [Title]
-- **Issue:** [description]
-- **Suggestion:** [fix]
-
-### Referee Objections
-
-#### RO1: [The tough question]
-**Why it matters:** [why this could be fatal or damaging]
-**How to address it:** [suggested response or additional analysis/modeling]
-
----
-
-## Devil's Advocate Report
-
-*(Only in `full` and `da-only` modes)*
-
-### Strongest Counter-Argument
-[200-300 words. The single best case that the paper's conclusion is wrong.]
-
-### Critical Findings
-[Any CRITICAL-severity issues. If none, state "No critical findings."]
-
-### Major Findings
-[MAJOR-severity issues with challenge number]
-
-### Minor Findings and Observations
-[Brief list]
-
-### Alternative Explanations or Mechanisms Not Ruled Out
-1. [Alternative - what evidence/model check would distinguish it]
-2. [...]
-
----
-
-## Editorial Synthesis
-
-*(Only in `full` mode)*
-
-### Consensus Points
-[Where referee and Devil's Advocate agree.]
-
-### Areas of Disagreement
-[Where the adversarial assessment was too harsh, or where the referee pass was too generous.]
-
-### Decision Rationale
-[2-3 sentences explaining the recommendation.]
-
-### Revision Roadmap
-
-#### Priority 1: Required Before Submission
-- [ ] [Action item with specific guidance]
-
-#### Priority 2: Strongly Recommended
-- [ ] [Action item]
-
-#### Priority 3: Nice to Have
-- [ ] [Action item]
-
----
-
-## Specific Comments
-
-[Section-by-section or line-by-line comments, if useful. Include page, paragraph, equation, table, or figure references.]
-```
+- `scripts/extract_pdf_text.py`: read-only PDF text extraction using `pdftotext` with `pypdf` fallback.
+- `references/review-report-template.md`: final report template.
+- `references/real-referee-patterns.md`: tone, referee-pattern, and macro/theory/quantitative-model calibration cues.
 
 ---
 

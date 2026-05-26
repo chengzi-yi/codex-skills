@@ -32,9 +32,9 @@ Examples:
 
 ### Step 0: Locate, Read, and Classify the Paper
 
-1. Parse `$ARGUMENTS` into a manuscript file path and optional mode. Default to `full`.
+1. Parse `$ARGUMENTS` into a manuscript file path, optional mode, and optional report output target. Treat recognized mode tokens (`full`, `quick`, `methodology`, `da-only`) as mode, not paths. Default to `full`.
 2. Treat the first valid supported manuscript file path as the paper, even when that paper is itself `.md`.
-3. Treat the first additional path after the manuscript path as the optional report output target.
+3. Treat the first additional filesystem path after the manuscript path, ignoring recognized mode tokens, as the optional report output target.
 4. Require an explicit manuscript file path. Do not infer a project, repository, or folder from a short name.
 5. Verify the manuscript file exists and has a supported extension. If not, ask for the paper file path.
 6. Validate the optional report output target if supplied:

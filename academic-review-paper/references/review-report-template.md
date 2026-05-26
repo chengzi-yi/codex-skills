@@ -2,6 +2,15 @@
 
 Use this template for the final report. Omit sections that do not apply to the selected mode, but keep the metadata block and the relevant referee, Devil's Advocate, and synthesis sections.
 
+## Contents
+
+- Metadata block
+- Summary Assessment
+- Econ Referee Report
+- Devil's Advocate Report
+- Editorial Synthesis
+- Specific Comments
+
 ```markdown
 # Manuscript Review: [Paper Title]
 

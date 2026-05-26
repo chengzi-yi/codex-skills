@@ -2,6 +2,15 @@
 
 *Distilled from actual referee reports and editor letters at top economics journals (REStat). Use these patterns to calibrate tone, depth, and focus when generating reviews.*
 
+## Contents
+
+- 1. How Real Referees Structure Reports
+- 2. What Real Referees Prioritize
+- 3. Table and Presentation Comments
+- 4. Tone Calibration
+- 5. Patterns for the Skill to Emulate
+- 6. Macro Theory and Quantitative Model Patterns
+
 ---
 
 ## 1. How Real Referees Structure Reports

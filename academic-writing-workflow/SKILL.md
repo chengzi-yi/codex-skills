@@ -1,11 +1,22 @@
 ---
 name: academic-writing-workflow
-description: Guide academic economics writing for applied and structural papers and presentation slides. Use when drafting a paper backbone from notes, proofreading or rewriting selected paragraphs/sentences, restructuring sections, updating introductions or abstracts, editing Beamer/defense/seminar slides, explaining model/estimation/counterfactual methods from documentation, or reviewing consistency across empirical facts, model mechanisms, estimation, and implications.
+description: >-
+  Guide academic economics writing for applied and structural papers, appendices,
+  writing plans, and presentation slides. Use when drafting a paper backbone from
+  notes, proofreading or rewriting selected prose, restructuring sections, updating
+  introductions or abstracts, editing Beamer/defense/seminar slides, explaining
+  model/estimation/counterfactual methods from documentation, or reviewing consistency
+  across empirical facts, model mechanisms, estimation, and implications. This skill
+  may consume analysis-design and output-interpretation notes as grounded sources,
+  but do not use it to create or maintain those vault note types; use
+  research-analysis-notes for them.
 ---
 
 # Academic Writing Workflow
 
 Use this skill as a context-aware editor for academic economics papers and slides, especially work that combines empirical facts, structural modeling, estimation, and counterfactuals.
+
+Route by the requested artifact and purpose, not verbs such as `plan`, `write`, `revise`, or `interpret`. Use this skill for writing-facing papers, appendices, abstracts, writing plans, and slides. Treat `analysis-design` and `output-interpretation` notes as grounded sources rather than owned artifacts, and route their creation or maintenance to `research-analysis-notes`. When one request updates both surfaces, maintain the durable note first and then update the writing artifact. If the intended artifact cannot be inferred from context, ask which surface the user wants and do not create both by default.
 
 ## Hard Rules
 

@@ -1,10 +1,9 @@
 ---
 name: atomic-slice-commit-loop
-description: 'Use for plan-driven implementation slices that need focused checks, readme.md sync, and atomic conventional commits. Load repo slice guidance for local paths and escalation rules when available.'
+description: 'Use for plan-driven implementation slices that need focused checks, README.md sync, and atomic conventional commits. Load repo slice guidance for local paths and escalation rules when available.'
 argument-hint: 'Provide plan item, target files, and expected slice outcome.'
 user-invocable: true
 ---
-
 # Atomic Slice Commit Loop
 
 ## What This Skill Produces
@@ -13,9 +12,9 @@ A sequence of small, independently understandable implementation commits, each w
 
 ## When to Use
 
-- Implementing tasks from `plan/`.
+- Implementing tasks from a plan or an analysis design note.
 - Refactoring active code without mixing unrelated changes.
-- Maintaining continuous `readme.md` alignment.
+- Maintaining continuous `README.md` alignment.
 
 ## Required Inputs
 
@@ -36,7 +35,7 @@ A sequence of small, independently understandable implementation commits, each w
    - Execute tests or analysis checks relevant to this slice only.
    - Follow any repo-specific escalation or validation rules from repo guidance when present.
 4. Sync documentation.
-   - Update `readme.md` with what changed and how to run or validate it.
+   - Update `README.md` with what changed and how to run or validate it.
    - Update any additional repo-specific doc targets from repo guidance when relevant.
 5. Commit atomically.
    - Use Conventional Commits with clear scope.
@@ -61,7 +60,7 @@ A sequence of small, independently understandable implementation commits, each w
 1. Slice goal.
 2. Files changed.
 3. Checks and outcome.
-4. `readme.md` updates.
+4. `README.md` updates.
 5. Commit hash and message.
 6. Next slice.
 
@@ -69,4 +68,4 @@ A sequence of small, independently understandable implementation commits, each w
 
 - One commit equals one intent.
 - Checks are relevant and passed, or failed with a clear reason.
-- `readme.md` reflects the accepted change.
+- `README.md` reflects the accepted change.

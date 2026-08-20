@@ -1,4 +1,4 @@
 interface:
   display_name: "Academic Writing Workflow"
   short_description: "Edit economics papers and slides in context"
-  default_prompt: "Use $academic-writing-workflow to edit this economics paragraph or slide in context while preserving technical meaning."
+  default_prompt: "Use $academic-writing-workflow to revise this economics paper or slide artifact in context while preserving technical meaning, evidence, and project conventions."

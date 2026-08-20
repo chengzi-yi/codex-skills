@@ -1,6 +1,6 @@
 # Structural Paper Architecture
 
-Use this as the default architecture for papers that combine empirical facts with structural estimation and counterfactuals.
+Use this as a diagnostic map, not a mandatory section template, for papers that combine empirical facts with structural estimation and counterfactuals. Adapt the sequence to the paper's actual contribution and evidence.
 
 ## Motivation And Introduction
 

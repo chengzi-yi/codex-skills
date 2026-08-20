@@ -34,7 +34,7 @@ Use these rules when proofreading, restructuring, or drafting academic economics
 - Avoid repeated claims. If the same idea appears twice, keep the sharper version.
 - Avoid heavy parentheticals and footnotes for points that belong in the main text.
 - Use "I" for sole-authored work when responsibility matters; otherwise tables, figures, estimates, or models can often be the subject.
-- Use UK English for this repo's draft.
+- Preserve the artifact's established English variety; follow the repo map when it specifies one.
 
 ### Reader Orientation
 

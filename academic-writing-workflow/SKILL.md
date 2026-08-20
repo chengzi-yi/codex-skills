@@ -1,65 +1,73 @@
 ---
 name: academic-writing-workflow
 description: >-
-  Guide academic economics writing for applied and structural papers, appendices,
-  writing plans, and presentation slides. Use when drafting a paper backbone from
-  notes, proofreading or rewriting selected prose, restructuring sections, updating
-  introductions or abstracts, editing Beamer/defense/seminar slides, explaining
-  model/estimation/counterfactual methods from documentation, or reviewing consistency
-  across empirical facts, model mechanisms, estimation, and implications. This skill
-  may consume analysis-design and output-interpretation notes as grounded sources,
-  but do not use it to create or maintain those vault note types; use
-  research-analysis-notes for them.
+  Edit and develop the argument and exposition of academic economics papers,
+  appendices, and presentation slides. Use for local prose edits, requested drafting,
+  paper or deck planning and restructuring, and source-grounded technical writing
+  within those artifacts. Do not use for build-only or submission-packaging work,
+  websites or CVs, standalone explanations, or maintenance of analysis-design and
+  output-interpretation notes.
 ---
 
 # Academic Writing Workflow
 
-Use this skill as a context-aware editor for academic economics papers and slides, especially work that combines empirical facts, structural modeling, estimation, and counterfactuals.
+Edit academic economics papers and slides in context while preserving their technical meaning, evidence, and project conventions.
 
-Route by the requested artifact and purpose, not verbs such as `plan`, `write`, `revise`, or `interpret`. Use this skill for writing-facing papers, appendices, abstracts, writing plans, and slides. Treat `analysis-design` and `output-interpretation` notes as grounded sources rather than owned artifacts, and route their creation or maintenance to `research-analysis-notes`. When one request updates both surfaces, maintain the durable note first and then update the writing artifact. If the intended artifact cannot be inferred from context, ask which surface the user wants and do not create both by default.
+## Scope And Ownership
 
-## Hard Rules
+- Own paper, appendix, abstract, academic-slide, and writing-plan content.
+- Do not use this skill for build-only or submission-packaging tasks, websites or CVs, standalone technical explanations, or non-writing artifacts.
+- Treat `analysis-design` and `output-interpretation` notes as grounded sources, not owned artifacts. If the user explicitly requests changes to both a note and a writing artifact, follow the repository's owning workflow for each surface; do not create or update an extra note by default.
+- Route by the requested artifact and purpose, not generic verbs such as `plan`, `write`, `revise`, or `interpret`. If the intended artifact cannot be inferred, ask which surface the user wants rather than creating multiple artifacts.
+
+## Editing Invariants
 
 - Default stance: edit, diagnose, and suggest; do not draft substantive paper or slide content unless explicitly asked.
-- Do not compile LaTeX, rebuild PDFs, or run document build commands unless explicitly asked.
 - Preserve claims, notation, citations, empirical qualifications, model assumptions, hedge strength, and LaTeX/Beamer structure unless explicitly asked to change substance.
-- Do not invent parameter values, sample definitions, citations, results, or mechanisms.
+- Resolve every added or changed technical claim, number, sample definition, result, or mechanism to current draft material, tables, code, or supplied notes. Label inference and flag conflicts instead of silently reconciling them.
+- Do not invent parameter values, sample definitions, citations, results, or mechanisms when the evidence is insufficient.
 - Use the smallest useful intervention and avoid unrelated cleanup.
-- Treat `[...]` as user-authored prose to incorporate; treat `[#...]` as instructions to apply and remove.
-- Read additional repo-local context when present and relevant.
+- Treat `[# ...]` as an editorial instruction to apply and remove within the requested scope.
+- Treat plain `[...]` as draft prose only when the user or surrounding editorial context identifies it as markup. Never treat LaTeX optional arguments, citations, equations, or unrelated TODO styles as edit markers.
 
 ## Workflow
 
-1. Ground the edit in context.
+1. Identify the requested mode: advice, review, direct edit, or requested drafting.
+   - Suggestions remain non-mutating.
+   - Direct edits change only the requested surface.
+   - Reviews lead with actionable findings rather than unsolicited rewrites.
+2. Ground the work in context.
    - Inspect the selected text and its surrounding paragraph, subsection, section, frame, or neighbouring frames.
    - Identify the local purpose of the text: motivation, fact, model object, mechanism, estimation detail, result, identification, counterfactual, implication, transition, or slide takeaway.
-   - For repo-specific drafts or slide decks, load the local repo map when available and relevant.
-
-2. Choose the smallest useful intervention.
+   - Resolve the Git root containing the target artifact and load only the relevant repo map when present.
+3. Choose the smallest useful intervention.
    - For proofreading, fix grammar, word order, tense, articles, punctuation, and awkward phrasing.
    - For flow, improve topic sentences, transitions, sentence order, and repetition.
    - For structure, diagnose missing links before rewriting; prefer local restructuring before whole-section rewrites.
    - For technical exposition, distinguish source-grounded facts from interpretation or suggested framing.
-
-3. Return output in the user's working style.
+4. Verify the requested outcome and build only when warranted.
+   - Never build for advice-only, review-only, or chat-only output.
+   - Follow explicit user instructions and repo-local build policy first; never build when the user opts out.
+   - Without such instructions, skip compilation for wording-only edits.
+   - After direct changes to commands, environments, labels, citations, inputs, tables, figures, frame structure, or other render-sensitive structure, compile only when source checks are insufficient to validate the edit.
+5. Return output in the user's working style.
    - For selected text, provide a revised version and a brief note on the main editing logic.
-   - For direct file edits, apply only the requested edit and avoid unrelated cleanup.
-   - For broader reviews, lead with actionable issues and the specific section-level fix.
+   - For file edits or reviews, summarize the requested scope, evidence limitations, and any broader issue deliberately left untouched.
 
 ## Task Routing
 
-- For selected text, paragraph, sentence, or bracket-markup edits, read `references/writing-principles.md`, `references/workflow-patterns.md` -> `Local Editing`, and enough surrounding draft context.
-- For draft backbones or new section planning, read `references/workflow-patterns.md` -> `Draft Development` and `references/structural-paper-architecture.md`.
-- For slide writing, slide editing, Beamer frame rewriting, defense slides, seminar slides, or presentation outline work, read `references/slide-writing-principles.md` and enough neighbouring frames to preserve the talk flow.
-- For structure, consistency, or argument-chain review, read `references/workflow-patterns.md` -> `Argument-Chain Review`, `references/structural-paper-architecture.md`, and the repo draft map if available.
-- For technical exposition, model solution, estimation, moments, or counterfactual descriptions, read `references/workflow-patterns.md` -> `Technical Exposition` and ground statements in supplied code, documentation, tables, notes, or draft context.
+- For local prose or editorial-markup edits, read `references/writing-principles.md` and enough surrounding context.
+- For draft development, read `references/workflow-patterns.md` and `references/structural-paper-architecture.md` when the empirical-structural architecture is relevant.
+- For slide writing, editing, or restructuring, read `references/slide-writing-principles.md`, the repo slide map when present, and enough neighbouring frames to preserve the talk flow.
+- For structure, consistency, or argument-chain review, read `references/workflow-patterns.md`, `references/structural-paper-architecture.md`, and the repo draft map when present.
+- For technical writing inside an owned artifact, read `references/workflow-patterns.md` and the underlying code, documentation, tables, notes, or draft context.
 - Load only the references needed for the task.
 
 ## Optional Repo Context
 
-Repo-specific references should stay in the repo rather than in this user-level skill. When present, use:
+Repo-specific references should stay in the target artifact's Git repository rather than in this user-level skill. When present, use:
 
-- `.agents/references/academic-writing-workflow/repo-draft-map.md` for local draft structure, project-specific terminology, English variant preferences, and paper-specific argument chains.
-- `.agents/references/academic-writing-workflow/repo-slide-map.md` for local deck structure, timing, slide-role patterns, presentation rules, and deck-specific terminology.
+- `<git-root>/.agents/references/academic-writing-workflow/repo-draft-map.md` for local draft structure, project-specific terminology, English variant preferences, paper-specific argument chains, and validation conventions.
+- `<git-root>/.agents/references/academic-writing-workflow/repo-slide-map.md` for local deck structure, timing, slide-role patterns, presentation rules, deck-specific terminology, and validation conventions.
 
-Treat repo maps as replaceable local context. Do not assume they exist outside the current repo, and do not require them for general academic writing tasks.
+Treat repo maps as replaceable context for style and structure, not factual authority. Verify technical claims against live sources, do not assume maps exist, and do not require them for general academic writing tasks.

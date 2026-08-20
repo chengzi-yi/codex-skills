@@ -15,8 +15,7 @@ Use these rules when writing, editing, restructuring, or reviewing academic econ
 ## Frame-Level Editing
 
 - Make each slide carry one idea.
-- Use takeaway titles that state the slide's claim, not labels such as "Results" or "Model".
-- Use short, direct frame titles; prefer noun-phrase or result titles over full-sentence titles.
+- Use concise, claim-oriented titles that state the slide's takeaway rather than generic labels such as "Results" or "Model".
 - Put only the bare essentials on main slides.
 - Keep bullets short and one-line where possible.
 - Minimize explanatory text around tables and figures; keep only the visual and a precise note when needed.
@@ -31,9 +30,9 @@ Use these rules when writing, editing, restructuring, or reviewing academic econ
 - Use figures for patterns, contrasts, trends, mechanisms, and model intuition.
 - Label axes, curves, units, and comparison groups clearly.
 - Use figure fonts that are much larger than paper-figure fonts.
-- Keep figures visually simple; use at most about three plotted series unless there is a strong reason.
+- Keep figures simple enough for the audience to distinguish the discussed patterns at presentation distance.
 - Use tables only when exact numbers matter, and show only the rows and columns that will be discussed.
-- If a table needs more than roughly ten numbers, turn it into a figure or split it.
+- When a table is too dense to read or discuss, show the relevant subset, split the walkthrough, or replace it with a figure.
 - Use equations sparingly and define notation where the audience needs it.
 
 ## Language And Consistency

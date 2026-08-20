@@ -1,4 +1,4 @@
 interface:
   display_name: "Academic Plotting"
-  short_description: "Paper and slide plotting workflow"
-  default_prompt: "Use $academic-plotting to restyle figures for papers or slides while minimizing reruns."
+  short_description: "Design and verify academic figures"
+  default_prompt: "Use $academic-plotting to design or refine this academic figure from approved data artifacts, preserve its analytical meaning, and verify the rendered output."

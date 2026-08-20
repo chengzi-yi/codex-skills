@@ -1,4 +1,4 @@
 interface:
   display_name: "Atomic Slice Loop"
-  short_description: "Deliver work in small validated commits"
-  default_prompt: "Use $atomic-slice-commit-loop to break the current task into the smallest validated implementation slice, run focused checks, sync docs, and prepare one atomic commit."
+  short_description: "Land approved work as validated commits"
+  default_prompt: "Use $atomic-slice-commit-loop to implement the approved plan as the smallest independently valid commit sequence, committing each completed slice by default while preserving unrelated worktree changes."

@@ -1,71 +1,62 @@
 ---
 name: atomic-slice-commit-loop
-description: 'Use for plan-driven implementation slices that need focused checks, README.md sync, and atomic conventional commits. Load repo slice guidance for local paths and escalation rules when available.'
-argument-hint: 'Provide plan item, target files, and expected slice outcome.'
-user-invocable: true
+description: Execute plan-driven implementation as one or more validated, atomic Git commits. Use when landing approved work in small reviewable slices; do not use for planning, read-only review, or requests that explicitly require changes to remain uncommitted.
 ---
+
 # Atomic Slice Commit Loop
 
-## What This Skill Produces
+Land an approved implementation plan as a sequence of independently reviewable, validated local commits.
 
-A sequence of small, independently understandable implementation commits, each with focused checks and synchronized documentation.
+## Commit Policy
 
-## When to Use
+- Commit each completed slice by default.
+- If the user explicitly requests uncommitted changes, staging only, or review before commit, preserve that requested final state instead.
+- If the user switches to uncommitted review after this workflow creates a commit, verify the target commit and intervening history, then undo only that workflow-created commit while retaining its changes. Do not rewrite unrelated history.
+- Never push unless the user explicitly requests it.
 
-- Implementing tasks from a plan or an analysis design note.
-- Refactoring active code without mixing unrelated changes.
-- Maintaining continuous `README.md` alignment.
+## Preflight
 
-## Required Inputs
+Before changing files:
 
-- Selected plan item and acceptance target.
-- Candidate files for the smallest useful slice.
-- Required checks for the slice.
+1. Resolve the Git root for every target and read the applicable `AGENTS.md` instructions.
+2. If `<git-root>/.agents/references/atomic-slice-commit-loop/repo-slice-guidance.md` exists, read it before choosing files, checks, or documentation targets.
+3. Record each repository's branch plus staged, unstaged, and untracked state. Preserve all unrelated changes.
+4. Derive the next slice's intent, acceptance condition, focused checks, and documentation impact from the approved plan and repository guidance.
 
-## Procedure
+## Slice And Validate
 
-1. Select one smallest useful slice.
-   - Define one intent and one acceptance condition.
-   - Limit touched files to what is necessary.
-   - If `.agents/references/atomic-slice-commit-loop/repo-slice-guidance.md` exists in the current repo, read it before selecting files or checks.
-2. Implement minimal changes.
-   - Preserve behavior unless the slice explicitly changes behavior.
-   - Keep code deterministic and reproducible.
-3. Run focused checks.
-   - Execute tests or analysis checks relevant to this slice only.
-   - Follow any repo-specific escalation or validation rules from repo guidance when present.
-4. Sync documentation.
-   - Update `README.md` with what changed and how to run or validate it.
-   - Update any additional repo-specific doc targets from repo guidance when relevant.
-5. Commit atomically.
-   - Use Conventional Commits with clear scope.
-   - Ensure the commit is independently understandable and reversible.
-6. Summarize and continue.
-   - Record outcome, risks, and the next smallest slice.
-   - Repeat loop.
+1. Select the smallest useful slice with one intent and one acceptance condition.
+   - Keep the implementation, tests, and necessary documentation for that intent together.
+   - Split work only when every resulting commit is independently useful and passes its own checks.
+   - A commit cannot span Git repositories; treat each repository as a separate commit boundary.
+2. Implement only the changes required for that intent.
+3. Run the focused checks required to demonstrate its acceptance condition, plus any checks required by repository guidance.
+   - Repair and rerun failures caused by the slice.
+   - For a pre-existing failure, establish the baseline and confirm that focused evidence still demonstrates the slice's acceptance condition.
+   - Do not commit with an unresolved slice-caused failure.
+   - Stop before widening the slice when resolution requires a new product, design, or scope decision.
+4. Synchronize documentation only when accepted behavior, a public interface, usage, validation instructions, or repository guidance changed.
+   - Use the repository-designated documentation target; do not assume it is `README.md`.
+   - When documentation is unchanged and the reason matters, record why in the handoff.
 
-## Preferred Commit Style
+## Commit And Continue
 
-- Use Conventional Commits (`refactor:`, `feat:`, `fix:`, `docs:`, `chore:`) with clear scope when applicable.
-- Keep messages concise and intent-first.
-- Keep each commit independently understandable and reversible.
+For each passing slice:
 
-## Decision Branches
+1. Stage only the intended paths or hunks, preserving unrelated staged and unstaged work.
+2. Inspect the staged diff and confirm it contains one intent, its tests, and any required documentation.
+3. Create a concise, intent-first Conventional Commit.
+4. Inspect the committed diff and recheck repository status to confirm unrelated work remains intact.
+5. Continue automatically through the remaining approved plan items while their scope and acceptance conditions remain clear. Otherwise stop and report the required decision or blocker.
 
-- If repo guidance points this work to an experiment or validation workflow, switch before widening the slice.
-- If validation fails, stop and report the cause before continuing.
+## Handoff
 
-## Output Format
+Group the final summary by repository and report:
 
-1. Slice goal.
-2. Files changed.
-3. Checks and outcome.
-4. `README.md` updates.
-5. Commit hash and message.
-6. Next slice.
+- commit hash, message, and intent, or the explicitly requested uncommitted state;
+- checks and outcomes;
+- documentation updated or intentionally unchanged;
+- remaining work or blockers;
+- final staged and unstaged state.
 
-## Completion Checks
-
-- One commit equals one intent.
-- Checks are relevant and passed, or failed with a clear reason.
-- `README.md` reflects the accepted change.
+Completion requires every authorized plan item to be implemented or explicitly reported as blocked, every committed slice to satisfy its acceptance condition, unrelated worktree state to remain intact, and no push without explicit authorization.

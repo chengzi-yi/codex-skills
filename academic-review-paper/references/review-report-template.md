@@ -1,129 +1,114 @@
 # Academic Review Paper Report Template
 
-Use this template for the final report. Omit sections that do not apply to the selected mode, but keep the metadata block and the relevant referee, Devil's Advocate, and synthesis sections.
+Use one prioritized findings list. Do not repeat the same concern as a major concern, referee objection, adversarial finding, and roadmap item. Cross-reference stable finding IDs instead.
 
 ## Contents
 
-- Metadata block
-- Summary Assessment
-- Econ Referee Report
-- Devil's Advocate Report
-- Editorial Synthesis
-- Specific Comments
+- Shared report
+- Purpose-specific modules
+- Optional adversarial module
+
+## Shared Report
 
 ```markdown
 # Manuscript Review: [Paper Title]
 
 **Date:** [YYYY-MM-DD]
-**Mode:** [full / quick / methodology / da-only]
-**File reviewed:** [path to manuscript]
-**Report output:** [working directory auto-name / folder path / existing .md append target]
+**Purpose:** [author review / discussant review / journal referee]
+**Depth or focus:** [prioritized / quick / methodology / da-only / full / user-specified]
 **Manuscript type:** [empirical-only / theory-only / quantitative-model / mixed empirical-model]
-**Reviewer:** /academic-review-paper skill v2.0
-
----
+**Coverage:** [surfaces reviewed and any material limitations]
 
 ## Summary Assessment
 
-**Overall recommendation:** [Strong Accept / Accept with Minor Revision / Revise and Resubmit / Reject]
+[Restate the research question, approach, main contribution, and overall assessment fairly. Distinguish what the paper demonstrates from the reviewer's interpretation.]
 
-[2-3 paragraph summary: main contribution, key strengths, and central concerns.]
+## Strengths
 
----
+- [Specific strength with a source locator and explanation of why it matters.]
 
-## Econ Referee Report
+## Prioritized Findings
 
-### Dimension Scores
+### MC1: [Concern title]
 
-| Dimension | Score (1-5 or N/A) | Key Issue |
-|-----------|:------------------:|-----------|
-| Argument Structure | | |
-| Empirical Identification and Econometrics | | |
-| Theory and Model Logic | | |
-| Quantitative Discipline, Validation, and Counterfactuals | | |
-| Empirics-Model Link | | |
-| Literature Positioning and Framing | | |
-| Writing Quality | | |
-| Presentation and Transparency | | |
-| **Overall** | **[avg over applicable dimensions]** | |
+- **Materiality:** [critical / major]
+- **Confidence:** [high / medium / low]
+- **Location:** [section, page, equation, table, figure, assumption, moment, or counterfactual]
+- **Claim at issue:** [the conclusion or interpretation affected]
+- **Evidence and reasoning:** [source-grounded analysis]
+- **Why it matters:** [effect on identification, mechanism, validity, contribution, or interpretation]
+- **Response path:** [feasible analysis/revision, or the design decision/evidence needed]
 
-### Strengths
+## Minor And Specific Comments
 
-1. [Specific strength with section/table/equation/page reference]
-2. [...]
-3. [...]
+- **m1 — [location]:** [concise comment and response where useful]
+```
 
-### Major Concerns
+Omit `Minor And Specific Comments` when it would add only low-value polish. Add no numeric score table unless the user explicitly requests scoring.
 
-#### MC1: [Title]
-- **Dimension:** [which applicable dimension]
-- **Issue:** [specific description]
-- **Suggestion:** [how to address it]
-- **Location:** [section/page/equation/table]
+## Purpose-Specific Modules
 
-### Minor Concerns
+Append only the module matching the review purpose.
 
-#### mc1: [Title]
-- **Issue:** [description]
-- **Suggestion:** [fix]
+### Author Review
 
-### Referee Objections
+```markdown
+## Revision Roadmap
 
-#### RO1: [The tough question]
-**Why it matters:** [why this could be fatal or damaging]
-**How to address it:** [suggested response or additional analysis/modeling]
+### Priority 1: Required Before Submission
+- [MC identifier and concrete next action]
 
----
+### Priority 2: Strongly Recommended
+- [MC identifier and concrete next action]
 
-## Devil's Advocate Report
+### Priority 3: Optional Polish
+- [Action only when it materially improves the paper]
+```
 
-*(Only in `full` and `da-only` modes)*
+### Discussant Review
 
-### Strongest Counter-Argument
-[200-300 words. The single best case that the paper's conclusion is wrong.]
+```markdown
+## Discussant Preparation
 
-### Critical Findings
-[Any CRITICAL-severity issues. If none, state "No critical findings."]
+### Main Discussion Points
+- [Finding ID, constructive framing, and why the audience should care]
 
-### Major Findings
-[MAJOR-severity issues with challenge number]
+### Questions For The Author
+- [Question that could clarify or advance the paper]
 
-### Minor Findings and Observations
-[Brief list]
+### Presentation Takeaways
+- [Concise framing suitable for an oral discussion or planning a slide]
+```
 
-### Alternative Explanations or Mechanisms Not Ruled Out
-1. [Alternative - what evidence/model check would distinguish it]
-2. [...]
+Do not create presentation slides unless the user requests them.
 
----
+### Journal Referee
 
-## Editorial Synthesis
+```markdown
+## Comments To The Authors
 
-*(Only in `full` mode)*
+[Prioritized assessment written for the authors.]
+```
 
-### Consensus Points
-[Where referee and Devil's Advocate agree.]
+Add `Confidential Comments To The Editor`, a recommendation, or journal-form scores only when the user requests them or the confirmed assignment requires them. Keep confidential comments separate from comments to authors.
 
-### Areas of Disagreement
-[Where the adversarial assessment was too harsh, or where the referee pass was too generous.]
+## Optional Adversarial Module
 
-### Decision Rationale
-[2-3 sentences explaining the recommendation.]
+Use for `full` and `da-only`. In `full`, do not repeat the prioritized findings.
 
-### Revision Roadmap
+```markdown
+## Adversarial Stress Test
 
-#### Priority 1: Required Before Submission
-- [ ] [Action item with specific guidance]
+### Strongest Counter-Case
+[The strongest source-grounded case against the central claim.]
 
-#### Priority 2: Strongly Recommended
-- [ ] [Action item]
+### What The Balanced Review May Be Underweighting
+- [New vulnerability or a sharper interpretation, cross-referencing MC IDs where relevant]
 
-#### Priority 3: Nice to Have
-- [ ] [Action item]
+### Alternative Explanations Or Mechanisms
+- [Alternative and the evidence, model comparison, or design change that would distinguish it]
 
----
+## Synthesis
 
-## Specific Comments
-
-[Section-by-section or line-by-line comments, if useful. Include page, paragraph, equation, table, or figure references.]
+[For `full` only: explain which adversarial points change the priorities and which remain speculative.]
 ```

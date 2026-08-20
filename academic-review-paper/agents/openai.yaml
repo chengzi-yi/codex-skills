@@ -1,4 +1,4 @@
 interface:
   display_name: "Academic Review Paper"
-  short_description: "Referee-style economics paper review"
-  default_prompt: "Use $academic-review-paper to review /path/to/manuscript.pdf in full mode."
+  short_description: "Prioritize evidence-grounded paper concerns"
+  default_prompt: "Use $academic-review-paper to review /path/to/manuscript.pdf for its current stage and audience, prioritize source-grounded concerns, and save the report locally."

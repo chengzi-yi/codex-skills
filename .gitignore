@@ -1,2 +1,14 @@
 .DS_Store
 .system/
+codex-primary-runtime/slides/SKILL.md
+codex-primary-runtime/slides/agents/openai.yaml
+codex-primary-runtime/slides/assets/file-presentation.png
+codex-primary-runtime/slides/scripts/init_pro_deck_builder_js.js
+codex-primary-runtime/slides/scripts/prepare_reference_prompts.js
+codex-primary-runtime/slides/scripts/pro_deck_quality_check.js
+codex-primary-runtime/slides/templates/build_pro_deck_template.js
+codex-primary-runtime/spreadsheets/SKILL.md
+codex-primary-runtime/spreadsheets/style_guidelines.md
+codex-primary-runtime/spreadsheets/agents/openai.yaml
+codex-primary-runtime/spreadsheets/assets/file-spreadsheet.png
+codex-primary-runtime/spreadsheets/templates/financial_models.md
